@@ -139,21 +139,41 @@ Explanation: Multiple spaces become one
 
 '''
 
-s = "the sky is blue"
+s = "  hello world  "
 
 
-for i in range(len(s) -1,-1,-1):
-   
-    print(s[i])
+right= len(s)-1
+left=0
+strs=""
 
-def revs(s):
+lst=[]
+char=""
 
-    revs =""
-    cs=""
+while left <len(s):
+    char=""
+    while left <len(s) and s[left]!= " " :
+        char=char+s[left]
+        left=left+1
+    lst.append(char)
+    if left < len(s) and s[left] == " " :
+        left=left+1
 
-    for i in range(len(s) -1,-1,-1):
+left=0
+right=len(lst)-1
+new_lst=lst
 
-        cs = cs+s[i]
+while left<right:
 
-        if s[i].isspace():
+    new_lst[left],new_lst[right] = new_lst[right],new_lst[left]
+    left=left+1
+    right=right-1
+print(new_lst)
 
+char=""
+for j in range(len(new_lst)):
+
+    if new_lst[j] != "":
+        for chars in new_lst[j]:
+            char=char+chars
+        char = char + ' '
+print(char)
