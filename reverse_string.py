@@ -176,4 +176,3 @@ for j in range(len(new_lst)):
         for chars in new_lst[j]:
             char=char+chars
         char = char + ' '
-print(char)
